@@ -8,6 +8,8 @@
 
 ## Introduction
 
+In this project, we will be using SQL to do data analysis on a dataset that contains information from the iOS app store. In this analysis, we will be identifying a stakeholder, who is an aspiring app developer who wants to create an app that stands out from the rest on the app store, to do so he needs data-related insights. So we will be targeting our analysis towards this goal. The questions we will be attempting to answer in our data analysis are: What app categories are the most popular, what price should the app be set at, how can user reviews be maximized, is there a relationship between description length and user rating, and is there a relationship between supported languages and user rating.
+
 ## Data Review
 
 The data used in the project was sourced from [Kaggle](https://www.kaggle.com/datasets/ramamet4/app-store-apple-data-set-10k-apps), which includes information from the iOS app store. This data set contains more than 7000 Apple iOS mobile application details.
