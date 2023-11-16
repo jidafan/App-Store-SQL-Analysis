@@ -44,3 +44,10 @@ The second and last file that this program will be using is [appleStore_descript
 | `track_name`     | The name of the app     |   
 | `size_bytes` | The file size of the app in bytes                                        |
 | `app_desc`  | The description of the app present on the page on the iOS store                   |
+
+## Code Exploration
+To view the full SQL code for this project, [click here](https://github.com/jidafan/App-Store-SQL-Analysis/blob/main/AppStore.sql).
+
+The code exploration will be split into two parts, one showing the exploratory data analysis that was performed, and the other showing the data analysis process.
+
+### Exploratory Data Analysis
