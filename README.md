@@ -51,3 +51,62 @@ To view the full SQL code for this project, [click here](https://github.com/jida
 The code exploration will be split into two parts, one showing the exploratory data analysis that was performed, and the other showing the data analysis process.
 
 ### Exploratory Data Analysis
+
+In this section, we will be performing exploratory data analysis, which will help us identify errors, understand patterns, find anomalous data, and find interesting relations between variables.
+
+**Counting the apps in the data set**
+```sql
+SELECT COUNT(DISTINCT id) as UniqueAppIDs
+From [Portfolio Project]..AppleStore
+
+SELECT COUNT(DISTINCT id) as UniqueAppIDs
+From [Portfolio Project]..appleStore_descriptions
+```
+The number of apps is the same for both tables, so the tables do not have any missing rows.
+
+**Checking for missing values in the data set**
+```sql
+SELECT COUNT(*) AS MissingValues
+FROM [Portfolio Project]..AppleStore
+WHERE track_name IS NULL OR user_rating IS NULL OR prime_genre IS NULL
+
+SELECT COUNT(*) AS MissingValues
+FROM [Portfolio Project]..appleStore_descriptions
+WHERE app_desc is NULL
+```
+There were no missing values in either table, so we do not need to clean the data and remove rows
+
+**Finding the distribution of apps per genre**
+```sql
+SELECT prime_genre, COUNT(*) AS NumApps
+FROM [Portfolio Project]..AppleStore
+GROUP BY prime_genre
+ORDER BY NumApps DESC
+```
+![image](https://github.com/jidafan/App-Store-SQL-Analysis/assets/141703009/53eaaed9-c772-456d-a6f9-037ea92c5edf)
+
+**Finding the min, max and average rating**
+```sql
+SELECT min(user_rating) as MinRating,
+	   max(user_rating) as MaxRating,
+	   avg(user_rating) as AvgRating
+From [Portfolio Project]..AppleStore
+```
+![image](https://github.com/jidafan/App-Store-SQL-Analysis/assets/141703009/c7f7f9e7-487b-467f-aae3-f7d3d28664a7)
+
+**Finding the distribution of apps per price range**
+```sql
+SELECT
+	(price / 2) *2 AS PriceBinStart,
+	((price /2 ) *2) +2 As PriceBinEnd,
+	COUNT(*) AS NumApps
+From [Portfolio Project]..AppleStore
+
+Group BY (price / 2) *2 
+Order BY PriceBinStart
+```
+![image](https://github.com/jidafan/App-Store-SQL-Analysis/assets/141703009/2dbb9918-a835-4e05-bafc-7fac751047ca)
+
+### Data Analysis 
+
+In this section, we will perform data analysis, which we will use to answer the questions posed in the introduction and help our shareholder develop his app.
