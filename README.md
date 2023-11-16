@@ -46,7 +46,7 @@ The second and last file that this program will be using is [appleStore_descript
 | `size_bytes` | The file size of the app in bytes                                        |
 | `app_desc`  | The description of the app present on the page on the iOS store                   |
 
-## Code Exploration
+## SQL Exploration
 To view the full SQL code for this project, [click here](https://github.com/jidafan/App-Store-SQL-Analysis/blob/main/AppStore.sql).
 
 The code exploration will be split into two parts, one showing the exploratory data analysis that was performed, and the other showing the data analysis process.
@@ -204,6 +204,6 @@ a.rank = 1
 ```
 ![image](https://github.com/jidafan/App-Store-SQL-Analysis/assets/141703009/2cabd416-7985-4386-83b4-17e1864b78ec)
 
-## Tableau
+## Tableau Dashboard
 
 
