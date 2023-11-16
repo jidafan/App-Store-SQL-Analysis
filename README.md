@@ -128,4 +128,82 @@ GROUP BY CASE
 ```
 ![image](https://github.com/jidafan/App-Store-SQL-Analysis/assets/141703009/2700d63e-f526-483f-83d4-2313b7f9a18f)
 
+We see here that paid apps generally have a higher user rating than free apps
+
+**Check whether supported languages influence user ratings**
+```sql
+ELECT CASE
+			WHEN lang_num < 10 THEN '<10 languages'
+			WHEN lang_num BETWEEN 10 AND 30 THEN '10-30 languages'
+			ELSE '>30 languages'
+		END AS language_bucket,
+		avg(user_rating) as Avg_Rating
+From AppleStore
+GROUP BY CASE
+			WHEN lang_num < 10 THEN '<10 languages'
+			WHEN lang_num BETWEEN 10 AND 30 THEN '10-30 languages'
+			ELSE '>30 languages'
+		END 
+ORDER BY Avg_Rating DESC
+```
+![image](https://github.com/jidafan/App-Store-SQL-Analysis/assets/141703009/b17d4854-6a77-459a-8231-0a91493ec8f8)
+
+Executing this code shows that apps with 10-30 languages supported have higher user ratings.
+
+**Checking the 10 genres with the lowest ratings**
+```sql
+SELECT TOP 10 prime_genre,
+	   avg(user_rating) as Avg_Rating
+From [Portfolio Project]..AppleStore
+Group By prime_genre
+Order By Avg_Rating ASC
+```
+![image](https://github.com/jidafan/App-Store-SQL-Analysis/assets/141703009/603fd2ca-5a00-4325-a0bc-2028f4b9b809)
+
+**Seeing if there is a correlation with length of description and rating**
+```sql
+SELECT CASE
+		WHEN len(b.app_desc) <500 THEN 'Short'
+		WHEN len(b.app_desc) BETWEEN 500 AND 1000 THEN 'Medium'
+		ELSE 'Long'
+	   END AS description_length_bucket,
+	   avg(a.user_rating) AS average_rating
+FROM [Portfolio Project]..AppleStore AS A
+JOIN
+		[Portfolio Project]..appleStore_descriptions as b
+ON
+		a.id = b.id
+
+GROUP BY CASE
+			WHEN len(b.app_desc) <500 THEN 'Short'
+			WHEN len(b.app_desc) BETWEEN 500 AND 1000 THEN 'Medium'
+			ELSE 'Long'
+	     END
+ORDER BY average_rating DESC
+```
+![image](https://github.com/jidafan/App-Store-SQL-Analysis/assets/141703009/69331c01-f358-4b35-a497-1cba8db125a5)
+
+We see that apps with a description above 1000 words have a higher rating on average compared to those with lesser word counts
+
+**Checking the top 10 apps for each genre**
+```sql
+SELECT
+	prime_genre,
+	track_name,
+	user_rating
+FROM (
+			SELECT
+			prime_genre,
+			track_name,
+			user_rating,
+			RANK() OVER(PARTITION BY prime_genre ORDER BY user_rating DESC, rating_count_tot DESC) AS RANK
+			FROM [Portfolio Project]..AppleStore
+	)AS A
+WHERE
+a.rank = 1
+```
+![image](https://github.com/jidafan/App-Store-SQL-Analysis/assets/141703009/2cabd416-7985-4386-83b4-17e1864b78ec)
+
+## Tableau
+
 
