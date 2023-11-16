@@ -5,6 +5,7 @@
 * [Data Review](#data-review)
 * [SQL Exploration](#sql-exploration)
 * [Tableau Dashboard](#tab;eau=dashboard)
+* [Conclusion](#conclusion)
 
 ## Introduction
 
@@ -110,3 +111,21 @@ Order BY PriceBinStart
 ### Data Analysis 
 
 In this section, we will perform data analysis, which we will use to answer the questions posed in the introduction and help our shareholder develop his app.
+
+**Determine whether paid apps have higher ratings than free apps**
+```sql
+SELECT CASE
+		WHEN price > 0 THEN 'PAID'
+		ELSE 'FREE'
+       END AS App_Type,
+		avg(user_rating) as Avg_Rating
+From [Portfolio Project]..AppleStore
+GROUP BY CASE
+		WHEN price > 0 THEN 'PAID'
+		ELSE 'FREE'
+         END
+
+```
+![image](https://github.com/jidafan/App-Store-SQL-Analysis/assets/141703009/2700d63e-f526-483f-83d4-2313b7f9a18f)
+
+
