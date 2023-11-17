@@ -214,4 +214,10 @@ To view the full dashboard for this project, click [here](https://public.tableau
 
 ## Conclusion
 
-Yep
+### Insights for our stockholder
+
+* The data shows that paid apps on average have higher ratings than free apps on the app store. So if our stakeholder believes his app to be high quality, we can charge a price for it. 
+* Apps that support 10 to 30 languages have higher ratings. So, if the app is successful, implementing multiple language support might be a plausible path to take to improve the quality of the app
+* Finances and Book apps have low ratings, which suggests that user demands aren't being met for the current apps on the market. Suggesting that if we can create an app that addresses these needs, we will be able to dominate the market
+* Our insights suggest that if we were to create a new app, we should aim for a rating above 3.5. If we can do so, we will be above the market average.
+* Games and entertainment apps dominate the market, meaning that the market may be saturated with these types of apps. However, we can also view this as those types of apps having a high demand.
