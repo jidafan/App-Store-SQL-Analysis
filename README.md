@@ -208,7 +208,8 @@ a.rank = 1
 
 To view the full dashboard for this project, click [here](https://public.tableau.com/app/profile/scott.duong8287/viz/AppStore_17001998317110/Dashboard2?publish=yes)
 
-![image](https://github.com/jidafan/App-Store-SQL-Analysis/assets/141703009/1dcb20c4-5f85-49a3-b960-6218111fe3ac)
+![image](https://github.com/jidafan/App-Store-SQL-Analysis/assets/141703009/3f824d40-0a0a-4387-929e-821807242c91)
+
 
 
 ## Conclusion
