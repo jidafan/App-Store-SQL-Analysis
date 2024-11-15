@@ -132,7 +132,7 @@ We see here that paid apps generally have a higher user rating than free apps
 
 **Check whether supported languages influence user ratings**
 ```sql
-ELECT CASE
+SELECT CASE
 			WHEN lang_num < 10 THEN '<10 languages'
 			WHEN lang_num BETWEEN 10 AND 30 THEN '10-30 languages'
 			ELSE '>30 languages'
